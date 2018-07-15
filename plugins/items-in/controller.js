@@ -78,10 +78,10 @@ module.exports = {
         }
       }
       let itemIn = await models.ItemsIns.create(Object.assign(request.payload, { barcode: RandomString.generate() }));
-      for (let i = 1; i <= item.quality; i++) {
+      for (let i = 1; i <= itemIn.quality; i++) {
         await models.SerialNos.create({
           serial_no: i,
-          items_in_id: item.id,
+          items_in_id: itemIn.id,
           barcode: RandomString.generate()
         });
       }
