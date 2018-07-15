@@ -83,7 +83,7 @@ module.exports = {
           items_in_id: item.id
         });
       }
-      itemIn = await models.Items.findOne({
+      itemIn = await models.ItemsIns.findOne({
         attributes: { exclude: ['item_id', 'vendor_id'] },
         include: [
           { model: models.Items, as: 'item' },
