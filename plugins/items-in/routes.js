@@ -53,7 +53,7 @@ module.exports = [
           type:Joi.any().valid(['Finished', 'Unfinished']).optional().description('item in type'),
           vendor_id: Joi.string().optional().description('item in vendor name'),
           invoice_no:Joi.string().optional().description('item in invoice no'),
-          date: Joi.date().iso().required().description('Item in date'),
+          date: Joi.date().iso().optional().description('Item in date'),
           quantity: Joi.number().optional().description('item in quantity'),
           rate: Joi.string().optional().description('item in rate'),
           discount: Joi.string().optional().description('item in discount'),
