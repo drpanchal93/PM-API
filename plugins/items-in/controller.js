@@ -76,7 +76,7 @@ module.exports = {
           throw Boom.notFound('Vendor not found.');
         }
       }
-      const itemIn = await models.ItemsIns.create(request.payload);
+      let itemIn = await models.ItemsIns.create(request.payload);
       for (let i = 1; i <= item.quality; i++) {
         await models.SerialNos.create({
           serial_no: i,
