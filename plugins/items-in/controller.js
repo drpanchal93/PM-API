@@ -1,4 +1,5 @@
 const Boom = require('boom');
+const RandomString = require('randomstring');
 
 module.exports = {
   list: async function (request, reply) {
@@ -76,11 +77,12 @@ module.exports = {
           throw Boom.notFound('Vendor not found.');
         }
       }
-      let itemIn = await models.ItemsIns.create(request.payload);
+      let itemIn = await models.ItemsIns.create(Object.assign(request.payload, { barcode: RandomString.generate() }));
       for (let i = 1; i <= item.quality; i++) {
         await models.SerialNos.create({
           serial_no: i,
-          items_in_id: item.id
+          items_in_id: item.id,
+          barcode: RandomString.generate()
         });
       }
       itemIn = await models.ItemsIns.findOne({

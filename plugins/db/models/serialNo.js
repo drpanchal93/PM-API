@@ -8,12 +8,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     serial_no: DataTypes.INTEGER,
     items_in_id: DataTypes.UUID,
-    barcode: {
-      type: DataTypes.STRING(32),
-      set() {
-
-        return RandomString.generate();
-      }
+    barcode: DataTypes.STRING(32)
     }
   });
   SerialNos.associate = (models) => {

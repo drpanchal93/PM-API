@@ -1,5 +1,3 @@
-const RandomString = require('randomstring');
-
 module.exports = function (sequelize, DataTypes) {
 
   const ItemsIns = sequelize.define('ItemsIns', {
@@ -19,13 +17,7 @@ module.exports = function (sequelize, DataTypes) {
     measurements: DataTypes.STRING(32),
     measurement_unit: DataTypes.STRING(32),
     notes: DataTypes.STRING(512),
-    barcode: {
-      type: DataTypes.STRING(32),
-      set() {
-
-        return RandomString.generate();
-      }
-    }
+    barcode: DataTypes.STRING(32)
   });
   ItemsIns.associate = (models) => {
 
