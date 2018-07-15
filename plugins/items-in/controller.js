@@ -49,8 +49,9 @@ module.exports = {
 
     try {
       const models = request.server.plugins.db.models();
+      let item;
       if (request.payload.item_id) {
-        const item = await models.Items.findOne(
+        item = await models.Items.findOne(
           {
             where:
             {
